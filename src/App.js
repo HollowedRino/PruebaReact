@@ -14,9 +14,12 @@ function MiBoton(){
 }
 
 function ListaCompra(props){
+  let usuario = props.usuario;
+  let listaItems = props.productos.map(prod => <li style={{color: prod.esFruta ? 'red':'green'}}> {prod.nombreProducto} </li>);
   return(
     <>
-    <h1>Hola {props.usuario}</h1>
+    <h1>Hola {usuario}</h1>
+    <ul>{listaItems}</ul>
     </>
   );
 }
@@ -36,7 +39,7 @@ function App() {
       <input type="text" id="apellidos" placeholder="Ingrese apellidos"></input> <br/>
       <input type="number" id="edad" placeholder='Ingrese edad'></input> <br/>
       <MiBoton/>
-      <ListaCompra usuario="Sebastian"/>
+      <ListaCompra usuario="Sebastian" productos={productos}/>
     </>
   );
 }
